@@ -7,8 +7,12 @@ function Link(props) {
 }
 
 function Botao(props) {
+    let classes = "botao"
+    if(props.desabilitado) {
+        classes += " botao--desabilitado"
+    } 
     return (
-        <input className="botao" type="submit" value={props.children}/>
+        <input className={classes} type="submit" value={props.children}/>
     )
 }
 
@@ -17,6 +21,7 @@ const paginaLogin = (
         <h1>Login</h1>
         <p>Entre com seu email e senha.</p>
         <Link url="/conta">Criar uma conta</Link>
+        <Link url="/login">Fazer login</Link>
         <Botao>Enviar</Botao>
     </main>
 )
