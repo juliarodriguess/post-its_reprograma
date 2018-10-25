@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from '../../componentes/Link/Link';
 import Botao from '../../componentes/Botao/Botao';
+import Legenda from '../../componentes/Legenda/Legenda'
+import Campo from '../../componentes/Campo/Campo'
 import './Login.css'
 
 function Login()  {
@@ -8,9 +10,12 @@ function Login()  {
         <main className="login">
             <h1>Login</h1>
             <p>Entre com seu email e senha.</p>
-            <Link url="/conta">Criar uma conta</Link>
-            <Link url="/login">Fazer login</Link>
+            <Legenda htmlFor="email">Email:</Legenda>
+            <Campo id="email" name="email" type="text" placeholder="Email"/> 
+            <Legenda htmlFor="senha">Senha:</Legenda>
+            <Campo id="senha" name="senha" type="password" placeholder="Senha"/>
             <Botao>Enviar</Botao>
+            <Link url="/conta">Criar uma conta</Link>
         </main>
     )
 }
