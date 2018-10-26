@@ -11,7 +11,7 @@ function Conta()  {
             <h1>Conta</h1>
             <p>Envie o formulário para criar uma conta!</p>
             <Legenda htmlFor="nome">Nome:</Legenda>
-            <Campo id="nome" name="nome" type="text" placeholder="Nome"/> 
+            <Campo id="nome" name="nome" type="text" placeholder="Nome" obrigatorio/> 
             <Legenda htmlFor="telefone">Telefone:</Legenda>
             <Campo id="telefone" name="telefone" type="tel" placeholder="Telefone"/>
             <Legenda htmlFor="email">Email:</Legenda>

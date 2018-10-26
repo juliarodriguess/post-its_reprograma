@@ -1,4 +1,4 @@
-.caixa-texto {
+.campo {
     font-size: 1rem;
     box-sizing: border-box;
     display: block;
@@ -9,7 +9,7 @@
     border-radius: 5px;
   }
   
-  .caixa-texto:focus {
+  .campo:focus {
     outline: none;
     border-color: #9351b4;
     box-shadow: 0 0 10px #9351b4;
