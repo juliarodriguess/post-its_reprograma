@@ -11,9 +11,9 @@ function Login()  {
             <h1>Login</h1>
             <p>Entre com seu email e senha.</p>
             <Legenda htmlFor="email">Email:</Legenda>
-            <Campo id="email" name="email" type="text" placeholder="Email"/> 
+            <Campo id="email" name="email" type="text" placeholder="Email" minLength={10} required/> 
             <Legenda htmlFor="senha">Senha:</Legenda>
-            <Campo id="senha" name="senha" type="password" placeholder="Senha"/>
+            <Campo id="senha" name="senha" type="password" placeholder="Senha" minLength={6} required/>
             <Botao>Enviar</Botao>
             <Link url="/conta">Criar uma conta</Link>
         </main>
