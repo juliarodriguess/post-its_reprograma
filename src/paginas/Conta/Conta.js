@@ -15,7 +15,7 @@ function Conta()  {
             <Legenda htmlFor="telefone">Telefone:</Legenda>
             <Campo id="telefone" name="telefone" type="tel" placeholder="Telefone"/>
             <Legenda htmlFor="email">Email:</Legenda>
-            <Campo id="email" name="email" type="text" placeholder="Email"/> 
+            <Campo id="email" name="email" type="email" placeholder="Email"/> 
             <Legenda htmlFor="senha">Senha:</Legenda>
             <Campo id="senha" name="senha" type="password" placeholder="Senha"/>
             <Botao>Enviar</Botao>
