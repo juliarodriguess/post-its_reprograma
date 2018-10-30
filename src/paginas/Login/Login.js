@@ -8,17 +8,31 @@ import './Login.css'
 class Login extends Component  {
     constructor(props) {
         super(props)
+        this.emailRef = React.createRef()
+        this.senhaRef = React.createRef()
+        this.state = {desabilitado: true}
     }
+
+    handleChange = () => {
+        const campoEmail = this.emailRef.current
+        const campoSenha = this.senhaRef.current
+        if(campoEmail.temErro() || campoSenha.temErro()) {
+            this.setState({desabilitado: true})
+        } else {
+            this.setState({desabilitado: false})
+        }
+    }
+
     render () {
         return (
             <main className="login">
                 <h1>Login</h1>
                 <p>Entre com seu email e senha.</p>
                 <Legenda htmlFor="email">Email:</Legenda>
-                <Campo id="email" name="email" type="email" placeholder="Email" minLength={10} required/> 
+                <Campo ref={this.emailRef} id="email" name="email" type="email" placeholder="Email" minLength={10} required onChange={this.handleChange}/> 
                 <Legenda htmlFor="senha">Senha:</Legenda>
-                <Campo id="senha" name="senha" type="password" placeholder="Senha" minLength={6} required/>
-                <Botao>Enviar</Botao>
+                <Campo ref={this.senhaRef} id="senha" name="senha" type="password" placeholder="Senha" minLength={6} required onChange={this.handleChange}/>
+                <Botao desabilitado={this.state.desabilitado} >Enviar</Botao>
                 <Link url="/conta">Criar uma conta</Link>
             </main>
         )
