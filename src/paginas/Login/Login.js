@@ -13,6 +13,22 @@ class Login extends Component  {
         this.state = {desabilitado: true}
     }
 
+    enviaDados = (evento) => {
+        evento.preventDefault()
+
+        const campoEmail = this.emailRef.current
+        const campoSenha = this.senhaRef.current
+
+        const dados = {
+            email: campoEmail.getValor(),
+            senha: campoSenha.getValor()
+        }
+
+        this.props.onEnviar(dados)
+
+        this.props.historico.push('/')
+    }
+
     handleChange = () => {
         const campoEmail = this.emailRef.current
         const campoSenha = this.senhaRef.current
@@ -28,12 +44,40 @@ class Login extends Component  {
             <main className="login">
                 <h1>Login</h1>
                 <p>Entre com seu email e senha.</p>
-                <Legenda htmlFor="email">Email:</Legenda>
-                <Campo ref={this.emailRef} id="email" name="email" type="email" placeholder="Email" minLength={10} required onChange={this.handleChange}/> 
-                <Legenda htmlFor="senha">Senha:</Legenda>
-                <Campo ref={this.senhaRef} id="senha" name="senha" type="password" placeholder="Senha" minLength={6} required onChange={this.handleChange}/>
-                <Botao desabilitado={this.state.desabilitado} >Enviar</Botao>
-                <Link url="/conta">Criar uma conta</Link>
+
+                <form onSubmit={this.enviaDados}>
+                    <Legenda htmlFor="email">
+                        Email:
+                    </Legenda>
+                    <Campo 
+                        ref={this.emailRef} 
+                        id="email" name="email" 
+                        type="email" 
+                        placeholder="Email" 
+                        minLength={10} 
+                        required onChange={this.handleChange}
+                    /> 
+
+                    <Legenda htmlFor="senha">
+                        Senha:
+                    </Legenda>
+                    <Campo 
+                        ref={this.senhaRef} 
+                        id="senha" 
+                        name="senha" 
+                        type="password" 
+                        placeholder="Senha" 
+                        minLength={6} 
+                        required onChange={this.handleChange}
+                    />
+
+                    <Botao desabilitado={this.state.desabilitado}>
+                        Enviar
+                    </Botao>
+                </form>
+                    <Link url="/conta">
+                        Criar uma conta
+                    </Link>
             </main>
         )
     }
