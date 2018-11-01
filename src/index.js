@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import Navbar from './componentes/Navbar/Navbar'
 import Login from './paginas/Login/Login'
 import Conta from './paginas/Conta/Conta'
 import QuemSomos from './paginas/QuemSomos/QuemSomos'
@@ -21,7 +22,7 @@ function logaUsuario(dados) {
 function App() {
     return (
         <div className='app'>
-            {/*<Navbar/>*/}
+            <Navbar/>
 
             <Switch>
                 <Route path='/' exact render={() => {
