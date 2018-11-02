@@ -10,12 +10,16 @@ class Menu extends Component {
     }
 
     abreOuFechaMenu = (evento) => {
-        evento.preventDefault()
         if(this.state.aberto) {
             this.setState({ aberto: false })  
         } else {
             this.setState({ aberto: true })
         }
+    }
+
+    sair = () => {
+        this.abreOuFechaMenu()
+        this.props.deslogaUsuario()
     }
 
     render() {
@@ -35,20 +39,28 @@ class Menu extends Component {
 
                 <ul className={classesDasOpcoes}>
                     <li>
-                        <NavLink to='/quem-somos' activeClassName='navbar-menu__opcoes--ativo'>
+                        <NavLink to='/quem-somos' activeClassName='navbar-menu__opcoes--ativo' onClick={this.abreOuFechaMenu}>
                             Quem Somos
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/contato' activeClassName='navbar-menu__opcoes--ativo'>
+                        <NavLink to='/contato' activeClassName='navbar-menu__opcoes--ativo' onClick={this.abreOuFechaMenu}>
                             Contato
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to='/login' activeClassName='navbar-menu__opcoes--ativo'>
-                            Sair
-                        </NavLink>
-                    </li>
+                    {this.props.usuario ? (
+                        <li>
+                            <NavLink to='/login' activeClassName='navbar-menu__opcoes--ativo' onClick={this.sair}>
+                                Sair
+                            </NavLink>
+                        </li>
+                    ) : (
+                        <li>
+                            <NavLink to='/login' activeClassName='navbar-menu__opcoes--ativo' onClick={this.abreOuFechaMenu}>
+                                Login
+                            </NavLink>
+                        </li>
+                    )}
                 </ul>
             </nav>
         )
