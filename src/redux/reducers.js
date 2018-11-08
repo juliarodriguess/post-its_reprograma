@@ -1,15 +1,23 @@
 import { combineReducers } from 'redux'
 
-const usuarioInicial = null
+const usuarioNoLocalStorage = JSON.parse(localStorage.getItem("usuario"))
+let usuarioInicial = {}
+if(usuarioNoLocalStorage) {
+    usuarioInicial = { usuario: usuarioNoLocalStorage }
+}
 
 function usuario(state = usuarioInicial, action) {
     switch(action.type) {
         case 'LOGA_USUARIO':
-            const usuarioLogado = action.dados
-            return usuarioLogado
+            localStorage.setItem('usuario', JSON.stringify(action.dados))
+            return {
+                usuario: action.dados
+            }
         case 'DESLOGA_USUARIO':
-            const usuarioDeslogado = null
-            return usuarioDeslogado
+        localStorage.removeItem('usuario')
+        return {
+            usuario: null
+        }
         default:
             return state
     }

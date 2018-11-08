@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { logaUsuario } from '../../redux/actions'
 import Link from '../../componentes/Link/Link';
 import Botao from '../../componentes/Botao/Botao';
 import Legenda from '../../componentes/Legenda/Legenda'
@@ -24,9 +26,9 @@ class Login extends Component  {
             senha: campoSenha.getValor()
         }
 
-        this.props.onEnviar(dados)
+        this.props.logaUsuario(dados)
 
-        this.props.historico.push('/')
+        this.props.history.push('/')
     }
 
     handleChange = () => {
@@ -83,4 +85,5 @@ class Login extends Component  {
     }
 }
 
-export default Login
+
+export default connect(null, { logaUsuario })(Login)
