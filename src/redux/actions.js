@@ -4,3 +4,16 @@ export function logaUsuario(dados) {
        dados
     }
 }
+
+export function deslogaUsuario() {
+    return {
+        type: 'DESLOGA_USUARIO'
+    }
+}
+
+export function cadastraPostIt (dados) {
+    return {
+        type: 'CADASTRA_POSTIT',
+        dados
+    }
+}
