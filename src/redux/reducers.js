@@ -27,6 +27,10 @@ function postits (state = [], action) {
     switch(action.type) {
         case 'CADASTRA_POSTIT':
             return state.concat(action.dados)
+        case 'ALTERA_POSTIT':
+            return state.map(postit => postit.id === action.dados.id ? action.dados : postit)
+        case 'REMOVE_POSTIT':
+            return state.filter(item => item.id !== action.id)
         default:
             return state
     }

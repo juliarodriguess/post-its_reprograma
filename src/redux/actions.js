@@ -17,3 +17,17 @@ export function cadastraPostIt (dados) {
         dados
     }
 }
+
+export function alteraPostIt (dados) {
+    return {
+        type: 'ALTERA_POSTIT',
+        dados
+    }
+}
+
+export function removePostIt (id) {
+    return {
+        type: 'REMOVE_POSTIT',
+        id
+    }
+}
