@@ -17,7 +17,6 @@ class Postit extends Component {
 
         if(cadastrando) {
             const dados = {
-                id: `6bd096f2-d36f-4527-845d-23310d03a74${Math.random(100)}`,
                 titulo: form.titulo.value,
                 texto: form.texto.value
             }
@@ -27,7 +26,7 @@ class Postit extends Component {
         } else {
             const dados = {
                 id: this.props.id,
-                título: form.titulo.value,
+                titulo: form.titulo.value,
                 texto: form.texto.value
             }
             this.props.alteraPostIt(dados)
@@ -76,7 +75,7 @@ class Postit extends Component {
                     defaultValue={this.props.texto}
                 />
                 {(cadastrando  || this.state.editando) && (
-                <button className="postit__botao-concluir">
+                <button type="submit" className="postit__botao-concluir" onClick={this.cadastraPostIt}>
                     Concluído
                 </button>
                 )}

@@ -10,14 +10,12 @@ function usuario(state = usuarioInicial, action) {
     switch(action.type) {
         case 'LOGA_USUARIO':
             localStorage.setItem('usuario', JSON.stringify(action.dados))
-            return {
-                usuario: action.dados
-            }
+            const usuarioLogado = action.dados
+            return usuarioLogado
         case 'DESLOGA_USUARIO':
         localStorage.removeItem('usuario')
-        return {
-            usuario: null
-        }
+        const usuarioDeslogado = null
+        return usuarioDeslogado
         default:
             return state
     }
